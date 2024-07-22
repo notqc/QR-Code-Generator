@@ -7,7 +7,7 @@ const port = 3000;
 
 const server = http.createServer((req, res) => {
   if (req.url === '/' && req.method === 'GET') {
-    fs.readFile(path.join(__dirname, 'public', 'index.html'), (err, data) => {
+    fs.readFile(path.join(__dirname, 'docs', 'index.html'), (err, data) => {
       if (err) {
         res.writeHead(500);
         res.end('Error loading index.html');
@@ -35,7 +35,7 @@ const server = http.createServer((req, res) => {
       'js': 'application/javascript'
     }[ext] || 'text/plain';
 
-    fs.readFile(path.join(__dirname, 'public', req.url), (err, data) => {
+    fs.readFile(path.join(__dirname, 'docs', req.url), (err, data) => {
       if (err) {
         res.writeHead(404);
         res.end('File not found');
