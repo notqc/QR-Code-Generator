@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: QR-Code-Generator
+    env: node
+    plan: free
+    buildCommand: 'npm install'
+    startCommand: 'node server.js'
+    # Optionally, specify environment variables
+    envVars:
+      - key: NODE_ENV
+        value: production
